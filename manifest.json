@@ -1,0 +1,21 @@
+{
+  "name": "Github LGTM 👍",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "",
+  "permissions": [
+    "https://github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://github.com/**/pull/*"
+      ],
+      "js": [
+        "jquery.min.js",
+        "script.js"
+      ]
+    }
+  ]
+}

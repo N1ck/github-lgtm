@@ -2,16 +2,17 @@ const lgtmButton = $('<button />',
   {
     text: 'LGTM 👍',
     class: 'btn btn-primary',
+    id: 'lgtm-button',
     click: (e) => {
       e.preventDefault()
       const authenticityToken = $('input[name="authenticity_token"]').val()
       const headSha = $('input[name="head_sha"]').val()
 
       $.ajax({
-        type: "POST",
+        type: 'POST',
         url: `${window.location.pathname}/reviews`,
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         },
         data: {
           '_method': 'put',
@@ -24,4 +25,12 @@ const lgtmButton = $('<button />',
     }
 })
 
-$('#partial-new-comment-form-actions').append(lgtmButton)
+const init = () => {
+  if (!$('#lgtm-button').length) {
+    $('#partial-new-comment-form-actions').append(lgtmButton)
+  }
+}
+
+$('#js-repo-pjax-container').bind("DOMSubtreeModified", init)
+
+init()

@@ -3,6 +3,7 @@ const lgtmButton = $('<button />',
     text: 'LGTM 👍',
     class: 'btn btn-primary',
     id: 'lgtm-button',
+    data: 'disabled-width',
     click: (e) => {
       e.preventDefault()
       const authenticityToken = $('input[name="authenticity_token"]').val()

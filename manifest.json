@@ -9,8 +9,13 @@
     "128": "images/icon128.png"
   },
   "permissions": [
-    "https://github.com/*"
+    "https://github.com/*",
+    "tabs",
+    "contextMenus"
   ],
+  "background": {
+    "scripts": ["scripts/background.js"]
+  },
   "content_scripts": [
     {
       "run_at": "document_end",

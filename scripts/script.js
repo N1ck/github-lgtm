@@ -1,10 +1,12 @@
 const lgtmButton = $('<button />',
   {
     text: 'LGTM 👍',
-    class: 'btn btn-primary',
+    'class': 'btn btn-primary',
     id: 'lgtm-button',
-    click: (e) => {
+    'data-disable-with': '',
+    click (e) {
       e.preventDefault()
+      let formButtons = $('.form-actions button')
       const authenticityToken = $('input[name="authenticity_token"]').val()
       const headSha = $('input[name="head_sha"]').val()
 
@@ -20,8 +22,12 @@ const lgtmButton = $('<button />',
           'head_sha': headSha,
           'pull_request_review[event]': 'approve',
           'pull_request_review[body]': 'LGTM'
+        },
+        beforeSend () {
+          formButtons.attr('disabled', true)
         }
       })
+      .done(() => formButtons.attr('disabled', false))
     }
 })
 

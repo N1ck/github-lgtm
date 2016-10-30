@@ -1,9 +1,10 @@
 const lgtmButton = $('<button />',
   {
     text: 'LGTM 👍',
-    class: 'btn btn-primary',
+    'class': 'btn btn-primary',
     id: 'lgtm-button',
-    click: (e) => {
+    'data-disable-with': '',
+    click (e) {
       e.preventDefault()
       submitLGTM()
     }

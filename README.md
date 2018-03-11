@@ -5,8 +5,8 @@
 
 ### Button
 
-![](screenshots/button-example.png)
+![123](screenshots/button-example.png)
 
 ### Comment
 
-![](screenshots/lgtm-example.png)
+![123](screenshots/lgtm-example.png)
